@@ -1,0 +1,27 @@
+<!-- res/drawable/ic_triangle_yellow.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp" android:height="24dp"
+    android:viewportWidth="24" android:viewportHeight="24">
+
+    <!-- Black border of triangle -->
+    <path
+        android:strokeColor="#000000"
+        android:strokeWidth="1"
+        android:fillColor="#00000000"
+        android:pathData="M12,2 L22,20 L2,20 Z" />
+
+    <!-- Yellow triangle fill -->
+    <path
+        android:fillColor="#FFED29"
+        android:pathData="M12,2 L22,20 L2,20 Z" />
+
+    <!-- Exclamation mark vertical line -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M11,7h2v7h-2z" />
+
+    <!-- Exclamation mark dot -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M11,17h2v2h-2z" />
+</vector>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FileBeacon</string>
+    <string name="wifi_icon_desc">Wi-Fi status icon</string>
+    <string name="start_server">Start Server</string>
+    <string name="stop_server">Stop Server</string>
+    <string name="status_stopped">Status: Server Stopped</string>
+    <string name="status_running">Status: Server Running</string>
+
+    <string name="url_placeholder">URL will be displayed here</string>
+    <string name="url_prefix">URL: </string>
+    <string name="ssid_label">SSID: %1$s</string>
+    <string name="url_label">%1$s</string>
+
+    <!-- WiFi indicators accessibility -->
+    <string name="wifi_status_enabled">WiFi Enabled Status Indicator</string>
+    <string name="wifi_status_connected">WiFi Connection Status Indicator</string>
+    <string name="no_wifi">No WiFi connected</string>
+    <string name="wifi_enabled_desc">WiFi Enabled</string>
+    <string name="wifi_connected_desc">WiFi Connected</string>
+
+    <!-- Permissions intro -->
+    <string name="perm_location_explain">
+        This app requires precise location permission to read your current Wi-Fi network name (SSID). Android considers Wi-Fi name access a location-related permission.
+    </string>
+    <string name="perm_location_button">Allow Precise Location</string>
+    <string name="perm_media_explain">
+        To explore and manage files on your device, the app needs access to your media, photos, and files. This is required to list, upload, or download files from your phone.
+    </string>
+    <string name="perm_media_button">Allow Files/Media Access</string>
+
+    <string name="skip_permissions">Skip Permission Request</string>
+    <string name="skip_warning_message">
+        Skipping permissions means the app will not function as intended and some features may be disabled.
+    </string>
+    <string name="location_denied">Location permission denied</string>
+    <string name="request_storage">Request Storage Write Permission</string>
+    <string name="request_allaccess">Request All Files Access</string>
+    <string name="request_all_files_access">Request All Files Access</string>
+    <string name="wifi_options">WiFi Options</string>
+    <string name="theme_name">Theme Name</string>
+    <string name="selected_theme_indicator">Selected theme indicator</string>
+
+
+    <!-- Labels for main UI -->
+    <string name="wifi_enabled_label">WiFi Enabled</string>
+    <string name="wifi_connected_label">WiFi Connected</string>
+    <string name="connected_to_label">YOU ARE CONNECTED TO:</string>
+    <string name="file_explorer_web_url_label">FILE EXPLORER WEB URL:</string>
+
+    <!-- Server status messages -->
+    <string name="server_running_button">Serving… Tap to Stop</string>
+    <string name="server_stopped_message">Server is stopped.</string>
+    <string name="server_starting">Server starting…</string>
+    <string name="server_stopping">Server stopping…</string>
+
+    <!-- Button labels -->
+    <string name="nearby_devices">📡 Nearby Devices</string>
+    <string name="nearby_devices_short">📡 Devices</string>
+    <string name="change_theme">🎨 Change Theme</string>
+    <string name="change_theme_short">🎨 Theme</string>
+</resources>
