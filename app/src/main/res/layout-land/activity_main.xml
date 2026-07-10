@@ -59,7 +59,7 @@
                     android:text="Your files. Always within reach."
                     android:textSize="10sp"
                     android:fontFamily="@font/montserrat_regular"
-                    android:textColor="#00BFFF" />
+                    android:textColor="#FFFFFF" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

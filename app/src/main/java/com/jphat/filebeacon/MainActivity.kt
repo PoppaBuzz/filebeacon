@@ -175,10 +175,24 @@ class MainActivity : AppCompatActivity(), DeviceDiscoveryManager.DeviceDiscovery
 
     private fun updatePermissionIntroUI() {
         introBinding?.apply {
-            btnRequestLocation.isEnabled = !isLocationGranted()
-            btnRequestMedia.isEnabled = !isMediaGranted()
-            btnRequestWriteStorage.isEnabled = !isWriteStorageGranted()
-            btnRequestManageStorage.isEnabled = !isManageExternalStorageGranted()
+            val grantedColor = ContextCompat.getColor(this@MainActivity, R.color.permission_granted)
+            val typedValue = android.util.TypedValue()
+            theme.resolveAttribute(androidx.appcompat.R.attr.colorPrimary, typedValue, true)
+            val primaryColor = typedValue.data
+
+            fun styleButton(btn: com.google.android.material.button.MaterialButton, granted: Boolean) {
+                btn.isEnabled = !granted
+                btn.backgroundTintList = android.content.res.ColorStateList.valueOf(
+                    if (granted) grantedColor else primaryColor
+                )
+                btn.setIconResource(if (granted) R.drawable.ic_check_circle else 0)
+                btn.iconGravity = com.google.android.material.button.MaterialButton.ICON_GRAVITY_TEXT_END
+            }
+
+            styleButton(btnRequestLocation, isLocationGranted())
+            styleButton(btnRequestMedia, isMediaGranted())
+            styleButton(btnRequestWriteStorage, isWriteStorageGranted())
+            styleButton(btnRequestManageStorage, isManageExternalStorageGranted())
         }
     }
 
@@ -222,6 +236,9 @@ class MainActivity : AppCompatActivity(), DeviceDiscoveryManager.DeviceDiscovery
     private fun showMainUI() {
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding!!.root)
+        // Force insets to be re-dispatched to the new view tree — necessary when
+        // setContentView is called a second time (e.g. transitioning from permissions screen).
+        ViewCompat.requestApplyInsets(mainBinding!!.root)
 
         // Two-color app name: "File" white, "Beacon" #0197FE
         mainBinding!!.appNameTextView.text = buildTwoColorTitle()
@@ -269,7 +286,17 @@ class MainActivity : AppCompatActivity(), DeviceDiscoveryManager.DeviceDiscovery
             val leftPadding = if (navInsets.left > 0) navInsets.left + extraPadding else extraPadding
             val rightPadding = if (navInsets.right > 0) navInsets.right + extraPadding else extraPadding
 
-            view.setPadding(leftPadding, sysInsets.top + extraPadding, rightPadding, sysInsets.bottom)
+            // Apply left/right/bottom insets to the root, but NOT top — the header card
+            // handles the status bar offset via its marginTop so the logo position stays consistent.
+            view.setPadding(leftPadding, 0, rightPadding, sysInsets.bottom)
+
+            // Push the header card down by the status bar height.
+            mainBinding?.root?.getChildAt(0)?.let { headerCard ->
+                val lp = headerCard.layoutParams as? android.widget.LinearLayout.LayoutParams
+                lp?.topMargin = sysInsets.top
+                headerCard.layoutParams = lp
+            }
+
             windowInsets
         }
 

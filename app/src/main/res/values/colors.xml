@@ -95,4 +95,7 @@
     <color name="md_theme_dark_surfaceTint">#9ECAFF</color>
     <color name="md_theme_dark_outlineVariant">#44474F</color>
     <color name="md_theme_dark_scrim">#000000</color>
+
+    <!-- Permission granted state -->
+    <color name="permission_granted">#2E7D32</color>
 </resources>
